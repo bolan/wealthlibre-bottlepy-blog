@@ -901,11 +901,8 @@ def read(urltitle):
 
 @route('/static/<filename:path>')
 def static(filename):
-    return static_file(filename, root='/var/www/wealthlibre/static')
-
-#@route('/sujinke/<filename:path>')
-#def static(filename):
-#    return static_file(filename, root='/home/sujinke/ftp')
+    return static_file(filename, root='/YOUR/WEBSITE/STATIC/PATH')
+# for example: '/var/www/foowebsite/static'
 
 @route('/upload')
 def upload():

@@ -47,10 +47,14 @@ introduction below:
 2. cd wealthlibre-bottlepy-blog
 
 3. Use your text editor to edit the file -- mycode.py, make sure to
-   change the following line to whatever you want: 
-   admin['YOURNAME1'] = 'YOURPASSWORD1'
+   search and replace the following lines to your real situation:
+ 
+   1) admin['YOURNAME1'] = 'YOURPASSWORD1'
+   2) return static_file(filename, root='/YOUR/WEBSITE/STATIC/PATH')
+
+4. Make sure "/YOUR/WEBSITE/STATIC/PATH" is writable.
    
-4. python mycode.py
+5. python mycode.py
 
 ------------------
 Write blog article
