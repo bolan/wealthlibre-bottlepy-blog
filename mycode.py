@@ -311,7 +311,9 @@ def do_login():
             <script>document.write('<a href="' + document.referrer + '">Go to previous page</a>');</script>
         """
     else:
-        return "<p>Login failed, </p> <script>document.write('<a href="' + document.referrer + '">Go to previous page</a>');</script>"
+        return """
+<p>Login failed, </p> <script>document.write('<a href="' + document.referrer + '">Go to previous page</a>');</script>
+        """
 
 @route('/logout')
 def logout():
