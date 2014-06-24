@@ -1,0 +1,79 @@
+=============
+BottlePy Blog
+=============
+
+-----------
+Description
+-----------
+
+This is a blog and general article management system based on
+BottlePy. If you want a lightweight blog and article website, this is
+good for you.
+
+--------
+Features
+--------
+
+This website system includes only one file -- mycode.py. You don't
+even need the bottle.py if your distribution include the latest
+development version of BottlePy.
+
+This website system uses Python Dictionary rather than SQL
+database. You don't need to install any database system.
+
+It supports templates, but you do not need separate template files. 
+
+It supports static files.
+
+It supports static html webpage, but you do not need separate *.html
+files.
+
+------------
+Dependencies
+------------
+
+Unix System (Linux, *BSD, Mac Os X, or any other has "/dev/urandom")
+Python 2.7
+
+------------
+Installation
+------------
+
+If you want to install for testing and coding purpose, just follow the
+introduction below:
+
+1. git clone https://github.com/bolan/wealthlibre-bottlepy-blog
+
+2. cd wealthlibre-bottlepy-blog
+
+3. Use your text editor to edit the file -- mycode.py, make sure to
+   change the following line to whatever you want: 
+   admin['YOURNAME1'] = 'YOURPASSWORD1'
+   
+4. python mycode.py
+
+------------------
+Write blog article
+------------------
+1. Type http://127.0.0.1:8080/admin to your web browser.
+
+2. Enter your admin username and password.
+
+3. Edit and have fun. This blog management system supports uploading
+   files and html tags. 
+
+-----------------
+Edit the frontend
+-----------------
+
+1. Change the title: 
+
+   The default title of this blog is Wealth & Libre, and it is the
+   same name of the author's blog. To change it, you just need to
+   search the "Wealth & Libre" and replace them to whatever your like.
+
+2. Edit the page appearance:
+
+   To edit the page's appearance, you need to know html. The html
+   codes are below every "return". Therefore, you can search the word
+   "return" and edit the following html codes.
