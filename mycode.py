@@ -7,7 +7,8 @@ import string
 import math
 from xml.sax.saxutils import escape, unescape
 import shelve
-from time import gmtime, strftime
+from datetime import datetime
+
 # import paste
 
 curdir = os.path.dirname(__file__)
@@ -122,16 +123,20 @@ def do_write():
         title = request.forms.get('title')
         category = request.forms.get('category')
         content = request.forms.get('content')
+        editTime = datetime.now().strftime("%a, %Y %b %d %H:%M:%S")
+        urlTime = datetime.now().strftime("-%Y-%m-%d-%H-%M-%S-%f")
 
         urltitle = title
         urltitle = urltitle.lower()
         urltitle = urltitle.translate(string.maketrans("",""), string.punctuation)
         urltitle = string.replace(urltitle, ' ','-')
+        urltitle = urltitle + urlTime
 
         urlcat = category
         urlcat = urlcat.lower()
         urlcat = urlcat.translate(string.maketrans("",""), string.punctuation)
         urlcat = string.replace(urlcat, ' ', '-')
+        urlcat = urlcat + urlTime
 
         articles[str(article_id['id'])] = {'title':title, 'category':category, 'content':content, 'urltitle':urltitle, 'urlcat':urlcat}
         articles.sync()
