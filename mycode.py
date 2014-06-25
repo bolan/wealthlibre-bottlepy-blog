@@ -136,7 +136,6 @@ def do_write():
         urlcat = urlcat.lower()
         urlcat = urlcat.translate(string.maketrans("",""), string.punctuation)
         urlcat = string.replace(urlcat, ' ', '-')
-        urlcat = urlcat + urlTime
 
         articles[str(article_id['id'])] = {'title':title, 'category':category, 'content':content, 'urltitle':urltitle, 'urlcat':urlcat}
         articles.sync()
