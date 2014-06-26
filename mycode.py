@@ -213,11 +213,17 @@ def do_edit(edit_id):
         title = request.forms.get('title')
         category = request.forms.get('category')
         content = request.forms.get('content')
+        editTime = datetime.now().strftime("%a, %Y %b %d %H:%M:%S")
+        urlTime = datetime.now().strftime("-%Y-%m-%d-%H-%M-%S-%f")
 
-        urltitle = title
-        urltitle = urltitle.lower()
-        urltitle = urltitle.translate(string.maketrans("",""), string.punctuation)
-        urltitle = string.replace(urltitle, ' ','-')
+        if title != articles[str(edit_id)]['title']:
+            urltitle = title
+            urltitle = urltitle.lower()
+            urltitle = urltitle.translate(string.maketrans("",""), string.punctuation)
+            urltitle = string.replace(urltitle, ' ','-')
+            urltitle = urltitle + urlTime
+        else:
+            urltitle = articles[str(edit_id)]['urltitle']
 
         urlcat = category
         urlcat = urlcat.lower()
