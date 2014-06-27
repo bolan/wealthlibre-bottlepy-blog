@@ -16,9 +16,8 @@ articles = shelve.open(os.path.join(curdir, "articles_db"), writeback = True)
 article_id = shelve.open(os.path.join(curdir, "article_id_db"), writeback = True)
 admin = shelve.open(os.path.join(curdir, "admin_db"), writeback = True)
 
-with open("/dev/urandom") as f:
+with open("/dev/random") as f:
     getSecretRand = f.read(256)
-
 secretBase64 = getSecretRand.encode('base64','strict')
 
 
