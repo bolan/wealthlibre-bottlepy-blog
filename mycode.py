@@ -912,8 +912,8 @@ def read(urltitle):
 
 @route('/static/<filename:path>')
 def static(filename):
-    return static_file(filename, root='/YOUR/WEBSITE/STATIC/PATH')
-# for example: '/var/www/foowebsite/static'
+    getCurrentPath = os.path.dirname(os.path.abspath(__file__))
+    return static_file(filename, root = getCurrentPath + '/static')
 
 @route('/upload')
 def upload():
@@ -946,9 +946,10 @@ def do_upload():
     if username:
         upload = request.files.get('upload')
         name, ext = os.path.splitext(upload.filename)
-        name = "webup" + "-" + strftime("%Y-%m-%d-%H%M%S-", gmtime()) + name
+        name = "webup" + "-" + datetime.now().strftime("%Y-%m-%d-%H-%M-%S-") + name
         upload.filename = name + ext
-        save_path = '/var/www/wealthlibre/static'
+        getCurrentPath = os.path.dirname(os.path.abspath(__file__))
+        save_path = getCurrentPath + '/static'
         upload.save(save_path)
         if ext in ['.jpg', '.jpeg', '.png', '.gif']:
             return template(
